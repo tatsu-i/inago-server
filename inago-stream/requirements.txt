@@ -1,0 +1,5 @@
+python-socketio
+websocket-server
+websocket-client
+pika==1.1.0
+zmq

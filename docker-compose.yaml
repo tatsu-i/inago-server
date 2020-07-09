@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  inago-collector:
+    build: inago-collector
+    depends_on:
+      - rabbitmq
+    restart: always
+
+  inago-candle:
+    build: inago-candle
+    depends_on:
+      - rabbitmq
+    restart: always
+
+  inago-stream:
+    build: inago-stream
+    restart: always
+    ports:
+      - "8000:8000"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    restart: always
